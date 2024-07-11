@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.my-container{
+  @apply w-full max-w-5xl mx-auto 
+}
+
+.btn-green{
+  @apply  border-[#2E8B57] text-[#2E8B57]
+}
+.btn-green:hover{
+  @apply bg-[#2E8B57] border-[#478562]
+}
+.btn-outline .btn-green{
+  @apply bg-none border-[#2E8B57]
+}
