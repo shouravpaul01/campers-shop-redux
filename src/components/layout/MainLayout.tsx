@@ -1,14 +1,18 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../header/Navbar";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Container from "../ui/Container";
 
 const MainLayout = () => {
   return (
-    <>
-      <Navbar />
-      <Outlet />
-      <ToastContainer />
-    </>
+    <div className="">
+      <Container>
+        <Navbar />
+        <Outlet />
+        <ToastContainer />
+      </Container>
+    </div>
   );
 };
 

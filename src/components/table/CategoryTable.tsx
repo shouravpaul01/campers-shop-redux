@@ -3,14 +3,12 @@ import {
   FaCircleDot,
   FaPenToSquare,
 } from "react-icons/fa6";
-
-
 import { useState } from "react";
 import Modal from "../ui/Modal";
 
 import Loading from "../ui/Loading";
 import { toast } from "react-toastify";
-import { useGetSingleCategoryQuery, useUpdateCategoryMutation } from "../../redux/features/category/categoryApi";
+import { useGetSingleCategoryQuery, useUpdateStatusCategoryMutation } from "../../redux/features/category/categoryApi";
 import { TCategory, TCategoryTableProps } from "../../types/category.type";
 import CreateUpdateCategoryForm from "../form/CreateUpdateCategoryForm";
 
@@ -19,7 +17,7 @@ const CategoryTable = ({ categories }: TCategoryTableProps) => {
   const { data: category, isFetching } = useGetSingleCategoryQuery(categoryId, {
     skip: !categoryId,
   });
-  const [updateStatusCategory] = useUpdateCategoryMutation();
+  const [updateStatusCategory] = useUpdateStatusCategoryMutation();
 
   const handleStatusUpdate = async (categoryId: string, status: boolean) => {
     const updateData = {
@@ -47,6 +45,7 @@ const CategoryTable = ({ categories }: TCategoryTableProps) => {
             <tr>
               <th></th>
               <th>Name</th>
+              <th>Description</th>
               <th>Status</th>
               <th>Action </th>
             </tr>
@@ -54,16 +53,17 @@ const CategoryTable = ({ categories }: TCategoryTableProps) => {
           <tbody>
             {categories?.map((category: TCategory, index: number) => (
               <tr key={index}>
-                <th>{index + 1}</th>
+                <td>{index + 1}</td>
                 <td>{category.name}</td>
+                <td>{category.description}</td>
                 <td>
-                  <div className="flex gap-2 items-center justify-center">
+                  <div className="flex gap-2 items-center ">
                     <FaCircleDot
-                      className={category.status ? "text-success" : "text-warning"}
+                      className={category.status ? "text-primary" : "text-error"}
                     />
                     <span>{category.status ? "Active" : "Inactive"}</span>
                     <button
-                      className={`btn btn-sm btn-primary`}
+                      className={`btn btn-sm btn-success`}
                       onClick={() =>
                         handleStatusUpdate(
                           category._id!,
@@ -77,7 +77,7 @@ const CategoryTable = ({ categories }: TCategoryTableProps) => {
                 </td>
                 <td>
                   <button
-                    className="btn btn-sm btn-primary"
+                    className="btn btn-sm btn-success"
                     onClick={() => {
                       setcategoryId(category._id!);
                     }}

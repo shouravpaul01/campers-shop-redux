@@ -13,7 +13,7 @@ const categoryApi = baseApi.injectEndpoints({
     }),
     getAllCategories: build.query({
       query: (query) => ({
-        url: `/categories?searchTerm=${query.searchTerm || ''}&page=${query.page || ''}`,
+        url: `/categories?searchTerm=${query?.searchTerm || ''}&page=${query?.page || ''}`,
         method: "GET",
       }),
       providesTags: ["categories"],
@@ -29,7 +29,7 @@ const categoryApi = baseApi.injectEndpoints({
         return {
           url: `/categories/${data._id}`,
           method: "PATCH",
-          body: data.brand,
+          body: data.category,
         };
       },
       invalidatesTags: ["categories"],

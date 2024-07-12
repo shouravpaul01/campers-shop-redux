@@ -29,7 +29,7 @@ const Navbar = () => {
     };
   }, [dropdownSearchContent]);
   return (
-    <div className="drawer my-container">
+    <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
@@ -47,7 +47,7 @@ const Navbar = () => {
           <div className="hidden flex-none lg:block">
             <ul className="flex space-x-3">
               <li>
-                <Link to={""}>Shop</Link>
+                <Link to={"/products"}>Products</Link>
               </li>
               <li>
                 <Link to={""}>About</Link>

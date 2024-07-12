@@ -57,7 +57,7 @@ const CreateUpdateCategoryForm =  ({editableData}:{editableData:TCategory | unde
       try {
         const updateData = {
           _id: data._id,
-          brand: {
+          category: {
             name: data.name,
             description: data.description,
           },

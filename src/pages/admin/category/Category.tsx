@@ -39,7 +39,7 @@ const Category = () => {
           </div>
         </div>
 
-        <CategoryTable categories={categories?.data}/>
+        <CategoryTable categories={categories?.data?.data}/>
 
         <div className="px-2 py-3">
           <Pagination
