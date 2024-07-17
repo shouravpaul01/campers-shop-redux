@@ -1,8 +1,7 @@
-import { yupResolver } from "@hookform/resolvers/yup";
+
 import { useEffect, useState } from "react";
 import {  SubmitHandler, useForm } from "react-hook-form";
 import { FaArrowsRotate } from "react-icons/fa6";
-import { productValidationSchema } from "../../validation/product.validation";
 import { TProduct } from "../../types/product.type";
 import { toast } from "react-toastify";
 import { useGetAllActiveCategoriesQuery } from "../../redux/features/category/categoryApi";
@@ -24,14 +23,11 @@ const CreateUpdateProductForm = ({
   const {
     register,
     reset,
-    control,
     handleSubmit,
     setValue,
     setError,
     formState: { errors },
-  } = useForm<TProduct>({
-    resolver: yupResolver(productValidationSchema),
-  });
+  } = useForm<TProduct>();
   useEffect(() => {
     if (editableData) {
       reset();

@@ -1,8 +1,9 @@
 import Slider from "rc-slider"
 import { useGetAllActiveCategoriesQuery } from "../../redux/features/category/categoryApi";
+import { TCategory } from "../../types/category.type";
 
 
-const ProductShopSideBar = ({rangeValue,setRangeValue,setCategoryValue}) => {
+const ProductShopSideBar = ({rangeValue,setRangeValue,setCategoryValue}:{rangeValue:number[],setRangeValue:(value:any)=>void,setCategoryValue:(value:any)=>void}) => {
     const { data: categories } = useGetAllActiveCategoriesQuery(undefined);
   return (
     <>

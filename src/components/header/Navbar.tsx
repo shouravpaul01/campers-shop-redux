@@ -5,12 +5,12 @@ import {
   FaMagnifyingGlass,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import InputSearch from "../ui/InputSearch";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
     const [dropdownSearchContent,setDropdownSearchContent]=useState(false)
-    const [searchInputValue,setSearchInputValue]=useState('')
+    // const [searchInputValue,setSearchInputValue]=useState('')
+
     useEffect(() => {
     const handleClickOutside = (event:any) => {
       if (!event.target.closest('.dropdown-toggle') && !event.target.closest('.dropdown-content')) {
@@ -79,7 +79,7 @@ const Navbar = () => {
             dropdownSearchContent && <div className="dropdown-content flex justify-center bg-[#90e0b3] p-4 absolute left-0 right-0 top-16">
                   
            <div className="w-[450px]">
-           <InputSearch setSearchValue={setSearchInputValue} />
+           {/* <InputSearch setSearchValue={setSearchInputValue} /> */}
            </div>
          
         </div>

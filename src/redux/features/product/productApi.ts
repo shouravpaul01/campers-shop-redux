@@ -1,6 +1,5 @@
 import { baseApi } from "../../api/baseApi";
 
-
 const productApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createProduct: build.mutation({
@@ -13,7 +12,9 @@ const productApi = baseApi.injectEndpoints({
     }),
     getAllProducts: build.query({
       query: (query) => ({
-        url: `/products?searchTerm=${query?.searchTerm || ''}&page=${query?.page || ''}`,
+        url: `/products?searchTerm=${query?.searchTerm || ""}&page=${
+          query?.page || ""
+        }`,
         method: "GET",
       }),
       providesTags: ["products"],
@@ -41,14 +42,20 @@ const productApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["products"],
     }),
-    
+    getSingleProductBySlug: build.query({
+      query: (slug) => ({
+        url: `/products/get-product-by-slug?slug=${slug}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
 export const {
-useCreateProductMutation,
-useGetAllProductsQuery,
-useGetSingleProductQuery,
-useUpdateProductMutation,
-useUpdateStatusProductMutation
+  useCreateProductMutation,
+  useGetAllProductsQuery,
+  useGetSingleProductQuery,
+  useUpdateProductMutation,
+  useUpdateStatusProductMutation,
+  useGetSingleProductBySlugQuery
 } = productApi;

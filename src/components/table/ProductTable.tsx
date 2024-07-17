@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaArrowRightArrowLeft, FaCircleDot, FaPenToSquare, FaPlus } from "react-icons/fa6";
+import { FaArrowRightArrowLeft, FaCircleDot, FaPenToSquare } from "react-icons/fa6";
 import { TProduct } from "../../types/product.type";
 import Modal from "../ui/Modal";
 import CreateUpdateProductForm from "../form/CreateUpdateProductForm";
@@ -12,7 +12,7 @@ type TProductTable={
 const ProductTable = ({products}:TProductTable) => {
     const [productId, setProductId] = useState<string | "">("");
     const [updateStatusProduct]=useUpdateStatusProductMutation()
-    const { data: product, isFetching } = useGetSingleProductQuery(productId, {
+    const { data: product } = useGetSingleProductQuery(productId, {
       skip: !productId,
     });
 

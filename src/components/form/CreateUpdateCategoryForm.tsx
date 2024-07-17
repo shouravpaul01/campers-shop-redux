@@ -7,7 +7,7 @@ import { categorySchemaValidation } from "../../validation/category.validation";
 import { toast } from "react-toastify";
 import { useCreateCategoryMutation, useUpdateCategoryMutation } from "../../redux/features/category/categoryApi";
 
-const CreateUpdateCategoryForm =  ({editableData}:{editableData:TCategory | undefined}) => {
+const CreateUpdateCategoryForm =  ({editableData}:{editableData?:TCategory | undefined}) => {
   
     const [isBtnSubmit, setIsBtnSubmit] = useState<boolean>(false);
     const [createCategory] = useCreateCategoryMutation();
