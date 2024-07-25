@@ -5,7 +5,15 @@
 .my-container{
   @apply w-full max-w-5xl mx-auto 
 }
-
+.bg-deepgreen{
+  @apply bg-[#2D6F6D]
+}
+.text-deepgreen{
+  @apply text-[#2D6F6D] 
+}
+.nav-item-hover:hover{
+  @apply text-[#2D6F6D]  font-bold
+}
 .btn-green{
   @apply  border-[#2E8B57] text-[#2E8B57]
 }

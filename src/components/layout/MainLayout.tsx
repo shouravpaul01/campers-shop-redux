@@ -7,8 +7,9 @@ import Container from "../ui/Container";
 const MainLayout = () => {
   return (
     <div className="">
+       <Navbar />
       <Container>
-        <Navbar />
+       
         <Outlet />
         <ToastContainer />
       </Container>

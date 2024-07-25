@@ -1,10 +1,12 @@
 import Banner from "../../../components/ui/Banner"
+import RecommendedProductSection from "./RecommendedProductSection"
 
 
 const Home = () => {
   return (
     <>
-    <Banner />
+    {/* <Banner /> */}
+    <RecommendedProductSection/>
     </>
   )
 }
