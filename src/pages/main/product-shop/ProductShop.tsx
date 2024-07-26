@@ -16,7 +16,7 @@ const ProductShop = () => {
   if (isLoading) {
     return <Loading />
   }
-  console.log(categoryValue)
+  
   return (
     <>
       <div className="flex gap-8 my-7 mx-3 md:mx-0">

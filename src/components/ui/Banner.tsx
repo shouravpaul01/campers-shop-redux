@@ -3,17 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import banner1 from "../../assets/images/banner1.jpg";
 
 const Banner = () => {
   return (
-    <div className="h-[400px] py-14">
-      <div className="flex gap-5 ">
-        <div className="w-full  md:w-3/5 rounded-md">
+    <div className=" py-5 ">
+      <div className="flex gap-3 ">
+        <div className="w-full md:w-[60%] rounded-md">
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
@@ -24,8 +23,7 @@ const Banner = () => {
             pagination={{
               clickable: true,
             }}
-            navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Autoplay, Pagination]}
             className="mySwiper"
           >
             <SwiperSlide>
@@ -37,14 +35,31 @@ const Banner = () => {
                 />
               </div>
             </SwiperSlide>
+             <SwiperSlide>
+              <div className="">
+                <img
+                  src={banner1}
+                  alt=""
+                  className="h-[400px] object-cover rounded-md"
+                />
+              </div>
+            </SwiperSlide>
           </Swiper>
         </div>
-        <div className="h-[400px] flex flex-col">
+        <div className="h-[388px] flex flex-col gap-3 w-[40%]">
           <div className="h-1/2">
-            <img src={banner1} alt="" className=" rounded-md" />
+            <img
+              src={banner1}
+              alt=""
+              className="h-full w-full object-cover rounded-md"
+            />
           </div>
-          <div className="h-1/2">
-            <img src={banner1} alt="" className=" rounded-md" />
+          <div className="h-1/2 ">
+            <img
+              src={banner1}
+              alt=""
+              className="h-full w-full object-cover rounded-md"
+            />
           </div>
         </div>
       </div>

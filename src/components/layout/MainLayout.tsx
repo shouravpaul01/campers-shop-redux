@@ -6,7 +6,7 @@ import Container from "../ui/Container";
 
 const MainLayout = () => {
   return (
-    <div className="">
+    <div className="bg-slate-100">
        <Navbar />
       <Container>
        

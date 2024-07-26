@@ -110,7 +110,7 @@ const Navbar = () => {
             </div>
           </div>
           {/* Navbar end */}
-          <div className="border-b border-black border-opacity-50 py-2 hidden md:block">
+          <div className="bg-white border-b border-black border-opacity-50 py-2 hidden md:block">
             <ul className="my-container flex items-center space-x-4">
               <li>
                 <div className="dropdown dropdown-hover">
@@ -123,12 +123,12 @@ const Navbar = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content top-9 menu bg-slate-100 rounded-md z-[1] w-52 p-2 shadow "
+                    className="dropdown-content top-9 main-menu bg-slate-100 rounded-md z-[1] w-52 p-2 shadow "
                   >
                     {activeCategories?.data?.map(
                       (category: TCategory, index: number) => (
-                        <li key={index}>
-                          <a className="hover:bg-gray-200">{category.name}</a>
+                        <li className="menu-item" key={index}>
+                          <a >{category.name}</a>
                         </li>
                       )
                     )}
@@ -208,13 +208,13 @@ const Navbar = () => {
                 Main Menu
               </button>
             </div>
-            <ul className="menu">
+            <ul className="main-menu">
               {tabMobileMenuItem == "categories" && (
                 <>
                   {activeCategories?.data?.map(
                     (category: TCategory, index: number) => (
-                      <li key={index}>
-                        <a className="hover:bg-gray-200">{category.name}</a>
+                      <li className="menu-item" key={index}>
+                        <a >{category.name}</a>
                       </li>
                     )
                   )}
@@ -222,13 +222,13 @@ const Navbar = () => {
               )}
               {tabMobileMenuItem == "main-menu" && (
                 <>
-                  <li>
-                    <Link to="/products" className="nav-item-hover">
+                  <li className="menu-item">
+                    <Link to="/products" >
                       Products
                     </Link>
                   </li>
-                  <li>
-                    <Link to="/about" className="nav-item-hover">
+                  <li  className="menu-item">
+                    <Link to="/about" >
                       About
                     </Link>
                   </li>

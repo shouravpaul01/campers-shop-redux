@@ -14,6 +14,17 @@
 .nav-item-hover:hover{
   @apply text-[#2D6F6D]  font-bold
 }
+.main-menu {
+  @apply p-4  space-y-1
+}
+
+.main-menu>.menu-item {
+  @apply flex items-center gap-2 hover:bg-[#2D6F6D] hover:text-white rounded-md py-2 px-3
+}
+
+.menu-item-active {
+  @apply bg-[#2D6F6D] text-white
+}
 .btn-green{
   @apply  border-[#2E8B57] text-[#2E8B57]
 }
@@ -24,3 +35,16 @@
   @apply bg-none border-[#2E8B57]
 }
 
+/* Animation */
+@keyframes animate-bounceLR {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.animate-bounceLR {
+  animation: animate-bounceLR 3s infinite;
+}
