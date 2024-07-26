@@ -1,6 +1,8 @@
 import Banner from "../../../components/ui/Banner";
 import { useGetAllProductsQuery } from "../../../redux/features/product/productApi";
 import DisplayCategorySection from "./DisplayCategorySection";
+import FAQSection from "./FAQSection";
+import NewArrivalSection from "./NewArrivalSection";
 import ShippingInformationSection from "./ShippingInformationSection";
 import TopSellingProductsSections from "./TopSellingProductsSections";
 
@@ -12,6 +14,8 @@ const Home = () => {
       <ShippingInformationSection />
       <TopSellingProductsSections products={products?.data?.data} />
       <DisplayCategorySection />
+      <NewArrivalSection products={products?.data?.data}/>
+      <FAQSection />
     </>
   );
 };

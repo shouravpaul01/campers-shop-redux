@@ -11,5 +11,7 @@ import { TCategory } from "./category.type";
     image: string;
     description: string;
     rating: number;
-    status?:boolean
+    status?:boolean;
+    createdAt?:string;
+    updatedAt?:string;
   }

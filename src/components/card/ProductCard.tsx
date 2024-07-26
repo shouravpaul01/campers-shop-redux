@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }: { product: TProduct }) => {
   return (
-    <div className="card card-compact rounded-md bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+    <div className="card card-compact rounded-[4px] bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
       <figure>
         <img
           src={product.image}
@@ -26,7 +26,7 @@ const ProductCard = ({ product }: { product: TProduct }) => {
             starSpacing="2px"
           />
         </div>
-        <div className="absolute inset-0 flex flex-col gap-5 items-center justify-center rounded-md bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 ">
+        <div className="absolute inset-0 flex flex-col gap-5 items-center justify-center rounded-[4px] bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 ">
           <button className="btn btn-sm btn-success "><FaCartShopping /> Add to Cart</button>
           <Link to={`/products/product-details/${product.slug}`} className="btn btn-sm btn-success "><FaCircleInfo /> See Details</Link>
         </div>
