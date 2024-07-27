@@ -10,7 +10,7 @@ const FAQSection = () => {
     },
   };
   return (
-    <div>
+    <div className="my-8">
       <div>
         <p className="text-3xl font-bold text-center">Some Answers For You</p>
         <p className="text-lg text-center text-gray-600 mt-2">
@@ -25,8 +25,8 @@ const FAQSection = () => {
         <div className="w-full md:w-1/2 space-y-2">
           <div className="collapse rounded-[4px] collapse-plus bg-white">
             <input type="radio" name="my-accordion-3" defaultChecked />
-            <div className="collapse-title text-xl font-medium border-b border-dashed">
-              What types of campers do you offer?
+            <div className="collapse-title text-lg font-medium border-b border-dashed">
+              Q: What types of campers do you offer?
             </div>
             <div className="collapse-content">
               <p>
@@ -38,8 +38,8 @@ const FAQSection = () => {
           </div>
           <div className="collapse rounded-[4px] collapse-plus bg-white">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-medium border-b border-dashed">
-              Do your campers come with a warranty?
+            <div className="collapse-title text-lg font-medium border-b border-dashed">
+            Q: Do your campers come with a warranty?
             </div>
             <div className="collapse-content">
               <p>
@@ -52,8 +52,8 @@ const FAQSection = () => {
           </div>
           <div className="collapse rounded-[4px] collapse-plus bg-white">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-medium border-b border-dashed">
-              How long does shipping take?
+            <div className="collapse-title text-lg font-medium border-b border-dashed">
+            Q: How long does shipping take?
             </div>
             <div className="collapse-content">
               <p>
@@ -66,8 +66,8 @@ const FAQSection = () => {
           </div>
           <div className="collapse rounded-[4px] collapse-plus bg-white">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-medium border-b border-dashed">
-              What is your return policy?
+            <div className="collapse-title text-lg font-medium border-b border-dashed">
+            Q: What is your return policy?
             </div>
             <div className="collapse-content">
               <p>

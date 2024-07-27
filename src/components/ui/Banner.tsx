@@ -12,7 +12,7 @@ const Banner = () => {
   return (
     <div className=" py-5 ">
       <div className="flex gap-3 ">
-        <div className="w-full md:w-[60%] rounded-md">
+        <div className="w-full md:w-[60%] rounded-md ">
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
@@ -31,7 +31,7 @@ const Banner = () => {
                 <img
                   src={banner1}
                   alt=""
-                  className="h-[400px] object-cover rounded-md"
+                  className="h-[400px] object-cover rounded-md "
                 />
               </div>
             </SwiperSlide>

@@ -25,15 +25,11 @@
 .menu-item-active {
   @apply bg-[#2D6F6D] text-white
 }
-.btn-green{
-  @apply  border-[#2E8B57] text-[#2E8B57]
+.btn-deepgreen{
+  @apply border-none bg-[#2D6F6D] rounded-[4px] text-white hover:bg-[#2D6F6D] hover:font-bold
 }
-.btn-green:hover{
-  @apply bg-[#2E8B57] border-[#478562]
-}
-.btn-outline .btn-green{
-  @apply bg-none border-[#2E8B57]
-}
+
+
 
 /* Animation */
 @keyframes animate-bounceLR {

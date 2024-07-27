@@ -3,6 +3,7 @@ import { useGetAllProductsQuery } from "../../../redux/features/product/productA
 import DisplayCategorySection from "./DisplayCategorySection";
 import FAQSection from "./FAQSection";
 import NewArrivalSection from "./NewArrivalSection";
+import PosterSection from "./PosterSection";
 import ShippingInformationSection from "./ShippingInformationSection";
 import TopSellingProductsSections from "./TopSellingProductsSections";
 
@@ -15,6 +16,7 @@ const Home = () => {
       <TopSellingProductsSections products={products?.data?.data} />
       <DisplayCategorySection />
       <NewArrivalSection products={products?.data?.data}/>
+      <PosterSection />
       <FAQSection />
     </>
   );

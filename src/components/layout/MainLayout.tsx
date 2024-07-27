@@ -3,16 +3,17 @@ import Navbar from "../header/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Container from "../ui/Container";
+import Footer from "../footer/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 ">
        <Navbar />
       <Container>
-       
         <Outlet />
         <ToastContainer />
       </Container>
+      <Footer />
     </div>
   );
 };
