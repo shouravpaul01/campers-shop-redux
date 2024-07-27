@@ -26,7 +26,10 @@
   @apply bg-[#2D6F6D] text-white
 }
 .btn-deepgreen{
-  @apply border-none bg-[#2D6F6D] rounded-[4px] text-white hover:bg-[#2D6F6D] hover:font-bold
+  @apply border-none bg-[#2D6F6D]  text-white hover:bg-[#2D6F6D] hover:font-bold
+}
+.btn-outLine-deepgreen{
+  @apply bg-none  border-[#2D6F6D]  text-white hover:bg-[#2D6F6D] hover:font-bold
 }
 
 

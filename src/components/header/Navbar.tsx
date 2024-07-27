@@ -1,16 +1,13 @@
 import {
-  FaAngleDown,
   FaBars,
   FaCartShopping,
   FaCircleUser,
   FaHeart,
-  FaLocationDot,
-  FaPhone,
   FaRegCircleUser,
   FaRegHeart,
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import campers_icon from "../../../public/campers-icon.png";
 import InputSearch from "../ui/InputSearch";
 import { useGetAllActiveCategoriesQuery } from "../../redux/features/category/categoryApi";
@@ -18,12 +15,13 @@ import { TCategory } from "../../types/category.type";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
+import { useAppSelector } from "../../redux/hook";
 
 const Navbar = () => {
   const [tabMobileMenuItem, setTabMobileMenuItem] = useState("categories");
   const [searchInputValue, setSearchInputValue] = useState("");
   const { data: activeCategories } = useGetAllActiveCategoriesQuery(undefined);
-
+  const {cart}= useAppSelector((state)=>state.cart)
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -92,12 +90,14 @@ const Navbar = () => {
                   </li>
                   <li>
                     <div className="indicator">
-                      <span className="indicator-item badge w-5 top-1 right-2 badge-secondary">
-                        9
+                      {
+                       cart?.length>0 && <span className="indicator-item badge w-5 top-1 right-2 badge-secondary">
+                        {cart?.length}
                       </span>
-                      <button>
+                      }
+                      <Link to={"/cart"}>
                         <FaCartShopping />
-                      </button>
+                      </Link>
                     </div>
                   </li>
                   <li className="hidden lg:block">
