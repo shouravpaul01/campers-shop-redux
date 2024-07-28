@@ -5,6 +5,7 @@ import AdminDasboard from "../pages/admin/dashbord/AdminDasboard";
 import ProductShop from "../pages/main/product-shop/ProductShop";
 import ProductDetails from "../pages/main/product-details/ProductDetails";
 import Cart from "../pages/main/cart/Cart";
+import Checkout from "../pages/main/checkout/Checkout";
 
 
 
@@ -28,6 +29,10 @@ export const router=createBrowserRouter([
             {
                 path:"/cart",
                 element:<Cart/>
+            },
+            {
+                path:"/checkout",
+                element:<Checkout/>
             },
             {
                 path:"/admin-dasboard",

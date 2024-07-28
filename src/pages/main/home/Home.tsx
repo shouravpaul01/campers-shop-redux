@@ -9,13 +9,14 @@ import TopSellingProductsSections from "./TopSellingProductsSections";
 
 const Home = () => {
   const { data: products, isLoading } = useGetAllProductsQuery({});
+  console.log(products,'products')
   return (
     <>
       <Banner />
       <ShippingInformationSection />
       <TopSellingProductsSections products={products?.data?.data} />
       <DisplayCategorySection />
-      <NewArrivalSection products={products?.data?.data}/>
+      {/* <NewArrivalSection products={products?.data?.data}/> */}
       <PosterSection />
       <FAQSection />
     </>

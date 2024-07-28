@@ -12,6 +12,7 @@ const ProductCard = ({ product }: { product: TProduct }) => {
     const cartData={
       product:product,
       quantity:1,
+      totalPrice:product.price
     }
     dispatch(addProductIntoCart(cartData));
   };

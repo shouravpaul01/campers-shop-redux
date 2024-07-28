@@ -3,7 +3,7 @@ import Heading from "../../../components/ui/Heading"
 import { TProduct } from "../../../types/product.type"
 
 const NewArrivalSection = ({products}:{products:TProduct[]}) => {
-    const newArrivals=products?.sort((a, b) => new Date(a.createdAt!).getTime() - new Date(b.createdAt!).getTime());
+    const newArrivals=products?.sort((a, b) => new Date(a.createdAt!).getTime() - new Date(b.createdAt!).getTime()) || [];
   return (
     <div className="py-9">
       <Heading headingTitle="New Arrivals"/> 

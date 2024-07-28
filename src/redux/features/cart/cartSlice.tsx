@@ -24,19 +24,19 @@ const cartSlice = createSlice({
                 toast.error("Stock is not available.")
                 return element
             }
-            return { ...element, quantity: element.quantity + 1 };
+            return { ...element, quantity: element.quantity + 1,totalPrice:element.totalPrice+element.product.price };
           }
           return element;
         });
       } else {
-        state.cart.push({ ...action.payload, quantity: 1 });
+        state.cart.push({ ...action.payload });
       }
     },
     updateProductIntoCart: (state, action) => {
         const { productId, quantity } = action.payload;
         state.cart = state.cart.map(element => {
           if (element.product._id === productId) {
-            return { ...element, quantity: quantity };
+            return { ...element, quantity: quantity,totalPrice:element.product.price*quantity};
           }
           return element;
         });
