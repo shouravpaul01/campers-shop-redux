@@ -6,6 +6,7 @@ import ProductShop from "../pages/main/product-shop/ProductShop";
 import ProductDetails from "../pages/main/product-details/ProductDetails";
 import Cart from "../pages/main/cart/Cart";
 import Checkout from "../pages/main/checkout/Checkout";
+import AboutUs from "../pages/main/about-us/AboutUs";
 
 
 
@@ -33,6 +34,11 @@ export const router=createBrowserRouter([
             {
                 path:"/checkout",
                 element:<Checkout/>
+            },
+            {
+                path:"/about",
+                element:<AboutUs/>
+
             },
             {
                 path:"/admin-dasboard",

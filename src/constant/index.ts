@@ -64,3 +64,24 @@ export const bangladeshDistricts = [
     { value: "Tangail", label: "Tangail" },
     { value: "Thakurgaon", label: "Thakurgaon" }
 ];
+export const teamMembers = [
+  {
+    name: 'John Doe',
+    role: 'Founder & CEO',
+    bio: 'John is passionate about adventure and has been leading the company with vision and dedication.',
+    photo: 'https://via.placeholder.com/150',
+  },
+  {
+    name: 'Jane Smith',
+    role: 'Head of Design',
+    bio: 'Jane designs our camping gear with a focus on functionality and style.',
+    photo: 'https://via.placeholder.com/150',
+  },
+  {
+    name: 'Mike Johnson',
+    role: 'Marketing Manager',
+    bio: 'Mike ensures our products reach the right audience through innovative marketing strategies.',
+    photo: 'https://via.placeholder.com/150',
+  },
+ 
+];
