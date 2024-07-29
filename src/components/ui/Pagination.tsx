@@ -18,7 +18,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }:TPaginationProps
     <div className="flex gap-3 ">
       <button
         onClick={() => setCurrentPage(currentPage - 1)}
-        className="btn btn-sm btn-circle btn-primary"
+        className="btn btn-sm btn-circle btn-deepgreen"
         disabled={currentPage === 1}
       >
         <MdKeyboardDoubleArrowLeft />
@@ -28,7 +28,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }:TPaginationProps
           <li
             key={index + 1}
             className={`btn btn-sm btn-circle ${
-              currentPage == pageNo ? "btn-primary" : "btn-outline btn-primary"
+              currentPage == pageNo ? "btn-deepgreen" : "btn-outline btn-deepgreen"
             } `}
             onClick={() => {
               setCurrentPage(pageNo);
@@ -40,7 +40,7 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }:TPaginationProps
       </ul>
       <button
         onClick={() => setCurrentPage(currentPage + 1)}
-        className="btn btn-sm btn-circle btn-primary"
+        className="btn btn-sm btn-circle btn-deepgreen"
         disabled={currentPage === totalPages}
       >
         <MdKeyboardDoubleArrowRight />

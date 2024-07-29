@@ -7,20 +7,20 @@ const ProductShopSideBar = ({rangeValue,setRangeValue,setCategoryValue}:{rangeVa
     const { data: categories } = useGetAllActiveCategoriesQuery(undefined);
   return (
     <>
-      <div className="bg-slate-100 rounded-md ">
+      <div className="bg-white rounded-[4px] ">
             <p className="font-semibold text-lg p-3 border-b">Price Range</p>
             <div className="p-5">
               <Slider
                 range
-                railStyle={{ backgroundColor: "white", height: 10 }}
-                trackStyle={{ backgroundColor: "blue", height: 10 }}
+                railStyle={{ backgroundColor: "whitesmoke", height: 10 }}
+                trackStyle={{ backgroundColor: "#2D6F6D", height: 10 }}
                 value={rangeValue}
                 onChange={(value) => setRangeValue(value)}
                 handleStyle={{
-                  borderColor: "blue",
+                  borderColor: "#2D6F6D",
                   height: 20,
                   width: 20,
-                  backgroundColor: "white",
+                  backgroundColor: "#2D6F6D",
                   cursor: "default",
                 }}
               />
@@ -28,19 +28,19 @@ const ProductShopSideBar = ({rangeValue,setRangeValue,setCategoryValue}:{rangeVa
                 <input
                   type="text"
                   readOnly
-                  className="input input-bordered input-sm w-16"
+                  className="input input-sm input-bordered rounded-[4px] focus-within:outline-none  w-16"
                   value={rangeValue[0]}
                 />
                 <input
                   type="text"
                   readOnly
-                  className="input input-bordered input-sm w-16"
+                  className="input input-sm input-bordered rounded-[4px] focus-within:outline-none  w-16"
                   value={rangeValue[1]}
                 />
               </div>
             </div>
           </div>
-          <div className="bg-slate-100 rounded-md ">
+          <div className="bg-white rounded-[4px] ">
             <p className="font-semibold text-lg p-3 border-b">Category</p>
             <div className="p-5">
               {categories?.data.map((category: TCategory, index: number) => (

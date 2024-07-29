@@ -14,7 +14,7 @@ const productApi = baseApi.injectEndpoints({
       query: (query) => ({
         url: `/products?searchTerm=${query?.searchTerm || ""}&page=${
           query?.page || ""
-        }`,
+        }&sort=${query.sort || ""}`,
         method: "GET",
       }),
       providesTags: ["products"],

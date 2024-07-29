@@ -1,36 +1,35 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
 type TInputSearchProps = {
-  className?:string,
-  setSearchValue: (prev: string) => void;
+  className?: string;
+  setSearchValue: (value: string) => void; 
+  value?: string; 
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; 
 };
-const InputSearch = ({className, setSearchValue }: TInputSearchProps) => {
+
+const InputSearch = ({ className, setSearchValue, value = "", onChange }: TInputSearchProps) => {
   const handleSearch = () => {
-    const searchInput = document.getElementById(
-      "searchInput"
-    ) as HTMLInputElement;
-    if (searchInput) {
-      setSearchValue(searchInput.value);
-    }
+    setSearchValue(value); 
   };
-  const handleKeyDownSearch = (e: any) => {
+
+  const handleKeyDownSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      setSearchValue(e.target.value);
+      setSearchValue(value); 
     }
   };
+
   return (
-    <>
-      <label className={`input  rounded-full flex items-center gap-2 ${className}`}>
-        <input
-          type="text"
-          className="grow focus-within:bg-none"
-          placeholder="Search"
-          id="searchInput"
-          onKeyDown={handleKeyDownSearch}
-        />
-        <FaMagnifyingGlass onClick={() => handleSearch()} />
-      </label>
-    </>
+    <label className={`input rounded-full flex items-center gap-2 ${className}`}>
+      <input
+        type="text"
+        className="grow focus-within:bg-none"
+        placeholder="Search"
+        value={value}
+        onChange={onChange} 
+        onKeyDown={handleKeyDownSearch}
+      />
+      <FaMagnifyingGlass onClick={handleSearch} />
+    </label>
   );
 };
 

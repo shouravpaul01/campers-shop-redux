@@ -7,14 +7,20 @@ import { TProduct } from "../../../types/product.type";
 import ProductCard from "../../../components/card/ProductCard";
 import Pagination from "../../../components/ui/Pagination";
 import Loading from "../../../components/ui/Loading";
+import { useLocation } from "react-router-dom";
 
 const ProductShop = () => {
+  const [sortValue, setSortValue] = useState("");
   const [rangeValue, setRangeValue] = useState([20, 80]);
   const [categoryValue, setCategoryValue] = useState();
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const { data: products,isLoading } = useGetAllProductsQuery({});
+  const location = useLocation();
+  console.log(categoryValue)
+  const queryParams = new URLSearchParams(location.search);
+  const searchQuery = queryParams.get("search") || "";
+  const { data: products,isLoading } = useGetAllProductsQuery({searchTerm:searchQuery,page:currentPage,sort:sortValue});
   if (isLoading) {
-    return <Loading />
+    return <Loading className="h-screen" />
   }
   
   return (
@@ -28,7 +34,7 @@ const ProductShop = () => {
           />
         </div>
         <div className="w-full md:w-3/4">
-          <div className="flex bg-slate-100 p-3 rounded-sm">
+          <div className="flex bg-white p-3 rounded-[4px]">
             <div className="flex-1">
               <label
                 htmlFor="my-drawer-4"
@@ -40,10 +46,10 @@ const ProductShop = () => {
             </div>
             <div className="flex items-center gap-1 w-52">
               <p className="w-24">Sort by:</p>
-              <select className="select select-bordered  select-sm w-full ">
-                <option value="">Deafult</option>
-                <option value="price">Low to High</option>
-                <option value="pice">High to Low</option>
+              <select className="select select-bordered  select-sm rounded-[4px] w-full " onChange={(e)=>setSortValue(e.target.value)}>
+                <option value="-createdAt">Deafult</option>
+                <option value="-price">Low to High</option>
+                <option value="price">High to Low</option>
               </select>
             </div>
           </div>

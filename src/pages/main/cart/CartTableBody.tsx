@@ -12,7 +12,7 @@ const CartTableBody = ({
   handleProductDeleteIntoCart: (productId: string) => void;
 }) => {
   const [quantity, setQuantity] = useState(product.quantity);
-  console.log(quantity)
+
   return (
     <tr>
       <th>{index + 1}</th>

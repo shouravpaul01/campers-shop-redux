@@ -6,8 +6,8 @@ import {
   FaRegCircleUser,
   FaRegHeart,
 } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-import {  useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import campers_icon from "../../../public/campers-icon.png";
 import InputSearch from "../ui/InputSearch";
 import { useGetAllActiveCategoriesQuery } from "../../redux/features/category/categoryApi";
@@ -21,7 +21,13 @@ const Navbar = () => {
   const [tabMobileMenuItem, setTabMobileMenuItem] = useState("categories");
   const [searchInputValue, setSearchInputValue] = useState("");
   const { data: activeCategories } = useGetAllActiveCategoriesQuery(undefined);
-  const {cart}= useAppSelector((state)=>state.cart)
+  const { cart } = useAppSelector((state) => state.cart);
+  const navigate = useNavigate();
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); 
+    navigate(`/products?search=${encodeURIComponent(searchInputValue)}`); 
+  };
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -70,10 +76,15 @@ const Navbar = () => {
               </div>
               <div className="hidden flex-none lg:block">
                 <div className="w-96">
-                  <InputSearch
-                    className="input-sm h-9"
-                    setSearchValue={setSearchInputValue}
-                  />
+                  <form onSubmit={handleSearchSubmit} className="w-96">
+                    <InputSearch
+                      className="input-sm h-9"
+                      setSearchValue={setSearchInputValue}
+                      value={searchInputValue} // Pass value
+                      onChange={(e) => setSearchInputValue(e.target.value)} // Handle change
+                    />
+                  </form>
+                  
                 </div>
               </div>
               <div className=" flex-none ">
@@ -90,11 +101,11 @@ const Navbar = () => {
                   </li>
                   <li>
                     <div className="indicator">
-                      {
-                       cart?.length>0 && <span className="indicator-item badge w-5 top-1 right-2 badge-secondary">
-                        {cart?.length}
-                      </span>
-                      }
+                      {cart?.length > 0 && (
+                        <span className="indicator-item badge w-5 top-1 right-2 badge-secondary">
+                          {cart?.length}
+                        </span>
+                      )}
                       <Link to={"/cart"}>
                         <FaCartShopping />
                       </Link>
@@ -128,7 +139,7 @@ const Navbar = () => {
                     {activeCategories?.data?.map(
                       (category: TCategory, index: number) => (
                         <li className="menu-item" key={index}>
-                          <a >{category.name}</a>
+                          <a>{category.name}</a>
                         </li>
                       )
                     )}
@@ -178,11 +189,15 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="w-full">
-            <InputSearch
-              className="input-bordered input-sm h-9"
-              setSearchValue={setSearchInputValue}
-            />
+          <div className="w-full ">
+          <form onSubmit={handleSearchSubmit} >
+              <InputSearch
+                className="input-sm h-9"
+                setSearchValue={setSearchInputValue}
+                value={searchInputValue} 
+                onChange={(e) => setSearchInputValue(e.target.value)} 
+              />
+            </form>
           </div>
           <div>
             <div className="flex justify-center items-center gap-3 border-b py-4">
@@ -214,7 +229,7 @@ const Navbar = () => {
                   {activeCategories?.data?.map(
                     (category: TCategory, index: number) => (
                       <li className="menu-item" key={index}>
-                        <a >{category.name}</a>
+                        <a>{category.name}</a>
                       </li>
                     )
                   )}
@@ -223,14 +238,10 @@ const Navbar = () => {
               {tabMobileMenuItem == "main-menu" && (
                 <>
                   <li className="menu-item">
-                    <Link to="/products" >
-                      Products
-                    </Link>
+                    <Link to="/products">Products</Link>
                   </li>
-                  <li  className="menu-item">
-                    <Link to="/about" >
-                      About
-                    </Link>
+                  <li className="menu-item">
+                    <Link to="/about">About</Link>
                   </li>
                 </>
               )}

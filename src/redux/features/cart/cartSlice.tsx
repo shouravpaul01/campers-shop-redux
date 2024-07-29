@@ -33,13 +33,22 @@ const cartSlice = createSlice({
       }
     },
     updateProductIntoCart: (state, action) => {
-        const { productId, quantity } = action.payload;
-        state.cart = state.cart.map(element => {
-          if (element.product._id === productId) {
-            return { ...element, quantity: quantity,totalPrice:element.product.price*quantity};
-          }
-          return element;
-        });
+        const { productId,product, quantity } = action.payload;
+        console.log(action.payload)
+        const isProductExists = state.cart.find(
+          (element) => element.product._id == productId
+        );
+        if (isProductExists) {
+          state.cart = state.cart.map(element => {
+            if (element.product._id === productId) {
+              return { ...element, quantity: quantity,totalPrice:element.product.price*quantity};
+            }
+            return element;
+          });
+        }else{
+          state.cart.push({ ...action.payload,totalPrice:product.price*quantity });
+        }
+        
       },
     deleteProductIntocart: (state, action) => {
         console.log(action.payload)

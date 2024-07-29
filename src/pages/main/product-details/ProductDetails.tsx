@@ -5,6 +5,9 @@ import PlusMinusInput from "../../../components/ui/PlusMinusInput";
 import { useZoomImageMove } from "@zoom-image/react";
 import { FaCartPlus, FaHeart } from "react-icons/fa6";
 import Loading from "../../../components/ui/Loading";
+import { useAppDispatch, useAppSelector } from "../../../redux/hook";
+import { updateProductIntoCart } from "../../../redux/features/cart/cartSlice";
+import { TProduct } from "../../../types/product.type";
 
 const ProductDetails = () => {
   const { slug } = useParams();
@@ -12,8 +15,10 @@ const ProductDetails = () => {
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const { createZoomImage: createZoomImageMove } = useZoomImageMove();
   const product = data?.data;
-  console.log(product);
-  const [quantity, setQuantity] = useState(1);
+  const {cart}= useAppSelector((state)=>state.cart)
+  const isProductExistsIntoCart=cart?.find(cart=>cart.product.slug==slug)
+  const [quantity, setQuantity] = useState(isProductExistsIntoCart?.quantity || 1);
+  const dispatch=useAppDispatch()
   useEffect(() => {
     if (product) {
       createZoomImageMove(imageContainerRef.current as HTMLDivElement, {
@@ -21,8 +26,12 @@ const ProductDetails = () => {
       });
     }
   }, [product]);
+  const handleCart=(product:TProduct,newQuantity:number)=>{
+    
+    dispatch(updateProductIntoCart({product:product, quantity: newQuantity }));
+  }
   if (isLoading) {
-    return <Loading />;
+    return <Loading className="h-screen"/>;
   }
   return (
     <div className="my-10">
@@ -39,7 +48,7 @@ const ProductDetails = () => {
             />
           </div>
         </div>
-        <div className="w-full md:w-3/5 bg-slate-100 rounded-md p-10">
+        <div className="w-full md:w-3/5 bg-white rounded-[4px] p-10">
           <p className="font-medium text-sm uppercase opacity-70">
             {product?.category?.name}
             {">"}
@@ -49,15 +58,16 @@ const ProductDetails = () => {
           <p className="font-bold text-2xl ">৳ {product?.price} </p>
           <div className="py-4 flex flex-col md:flex-row gap-2">
             <PlusMinusInput
+            btnClassName="btn-deepgreen rounded-[4px]"
               stockQunatity={product?.stockQunatity}
               quantity={quantity}
               setQuantity={setQuantity}
             />
-            <button className="btn btn-accent font-semibold uppercase">
+            <button className="btn btn-deepgreen rounded-[4px] uppercase" onClick={()=>handleCart(product,quantity)}>
               <FaCartPlus /> Add To cart
             </button>
 
-            <button className="btn btn-outline btn-accent font-semibold uppercase ">
+            <button className="btn btn-outline btn-deepgreen rounded-[4px]  uppercase ">
               <FaHeart /> Add To wishlist
             </button>
           </div>
