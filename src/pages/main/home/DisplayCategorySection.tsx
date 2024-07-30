@@ -1,5 +1,4 @@
 import Heading from "../../../components/ui/Heading";
-import icon from "../../../../public/campers-icon.png";
 import { useGetAllActiveCategoriesQuery } from "../../../redux/features/category/categoryApi";
 import { TCategory } from "../../../types/category.type";
 const DisplayCategorySection = () => {
@@ -11,9 +10,9 @@ const DisplayCategorySection = () => {
         {categories?.data?.map((category: TCategory, index: number) => (
           <div key={index} className="text-center">
             <img
-              src={icon}
+              src={category?.icon}
               alt=""
-              className="w-28 h-28 p-6 bg-white rounded-full shadow-md shadow-[#2D6F6D]"
+              className="w-24 h-24 p-5 bg-gradient-to-t from-white to-slate-200 rounded-full shadow-sm shadow-[#2D6F6D]"
             />
             <p className="font-semibold py-3">{category.name}</p>
           </div>

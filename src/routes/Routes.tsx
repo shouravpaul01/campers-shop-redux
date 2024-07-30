@@ -41,7 +41,7 @@ export const router=createBrowserRouter([
 
             },
             {
-                path:"/admin-dasboard",
+                path:"/admin-dashboard",
                 element:<AdminDasboard/>
             }
         ]

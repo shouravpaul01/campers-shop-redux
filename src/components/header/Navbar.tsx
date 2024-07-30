@@ -64,7 +64,7 @@ const Navbar = () => {
                   <FaBars />
                 </label>
               </div>
-              <div className="flex justify-end items-center space-x-2 font-bold text-2xl text-white text-end">
+              <Link to={""} className="flex justify-end items-center space-x-2 font-bold text-2xl text-white text-end">
                 <img
                   src={campers_icon}
                   alt="campers_icon"
@@ -73,15 +73,15 @@ const Navbar = () => {
                 <p className="text-end ">
                   Cambers<span className="text-warning ps-2">Shop</span>{" "}
                 </p>
-              </div>
+              </Link>
               <div className="hidden flex-none lg:block">
                 <div className="w-96">
                   <form onSubmit={handleSearchSubmit} className="w-96">
                     <InputSearch
                       className="input-sm h-9"
                       setSearchValue={setSearchInputValue}
-                      value={searchInputValue} // Pass value
-                      onChange={(e) => setSearchInputValue(e.target.value)} // Handle change
+                      value={searchInputValue} 
+                      onChange={(e) => setSearchInputValue(e.target.value)} 
                     />
                   </form>
                   
@@ -112,7 +112,7 @@ const Navbar = () => {
                     </div>
                   </li>
                   <li className="hidden lg:block">
-                    <Link to={"/admin-dasboard"}>
+                    <Link to={"/admin-dashboard"}>
                       <FaCircleUser />
                     </Link>
                   </li>
@@ -154,6 +154,11 @@ const Navbar = () => {
               <li>
                 <Link to="/about" className="nav-item-hover">
                   About
+                </Link>
+              </li>
+              <li>
+                <Link to="/admin-dashboard" className="nav-item-hover">
+                  Product-Management
                 </Link>
               </li>
             </ul>

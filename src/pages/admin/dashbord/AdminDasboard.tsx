@@ -9,23 +9,23 @@ import Dashboard from "./Dashboard";
 const AdminDasboard = () => {
   const [tabActive, setTabActive] = useState<string>("dashboard");
   return (
-    <div className="my-container">
+    <div className="my-container h-screen">
       <div className="my-4 ">
         <div className="join">
           <button
-            className={`btn join-item ${tabActive =="dashboard" ? "btn-accent":"btn-outline btn-accent "}`}
+            className={`btn join-item ${tabActive =="dashboard" ? "btn-deepgreen":"btn-outline-deepgreen "}`}
             onClick={() => setTabActive("dashboard")}
           >
            <FaHome /> Dashboard
           </button>
           <button
-            className={`btn join-item ${tabActive =="category" ? "btn-accent":"btn-outline btn-accent "}`}
+            className={`btn join-item ${tabActive =="category" ? "btn-deepgreen":"btn-outline-deepgreen "}`}
             onClick={() => setTabActive("category")}
           >
            <BiSolidCategory /> Category
           </button>
           <button
-            className={`btn join-item ${tabActive =="product" ? "btn-accent":"btn-outline btn-accent "}`}
+            className={`btn join-item ${tabActive =="product" ? "btn-deepgreen":"btn-outline-deepgreen "}`}
             onClick={() => setTabActive("product")}
           >
            <FaCubesStacked /> Product

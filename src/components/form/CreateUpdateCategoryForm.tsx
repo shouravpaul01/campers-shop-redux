@@ -34,7 +34,10 @@ const CreateUpdateCategoryForm =  ({editableData}:{editableData?:TCategory | und
     const handleCreate: SubmitHandler<TCategory> = async (data) => {
       setIsBtnSubmit(true);
       try {
-        const res = await createCategory(data).unwrap();
+        const formData=new FormData()
+        formData.append("file",data.icon[0])
+        formData.append("data",JSON.stringify(data))
+        const res = await createCategory(formData).unwrap();
         toast.success(res.message);
         reset();
       } catch (error:any) {
@@ -88,24 +91,38 @@ const CreateUpdateCategoryForm =  ({editableData}:{editableData?:TCategory | und
             type="text"
             {...register("name")}
             placeholder="Name"
-            className="input input-bordered   w-full"
+            className="input input-bordered rounded-[4px]  w-full"
           />
           {errors.name && (
             <span className="text-red-500">{errors.name.message}</span>
           )}
         </label>
         <label className="form-control w-full ">
+          <span className="label-text ">
+            Icon <span className="text-red-500">*</span>
+          </span>
+          <input
+            type="file"
+            {...register("icon")}
+            className="file-input file-input-bordered  rounded-[4px] w-full "
+          />
+
+          {errors.icon && (
+            <span className="text-red-500">{errors.icon.message as any}</span>
+          )}
+        </label>
+        <label className="form-control w-full ">
           <span className="label-text ">Description</span>
           <textarea
             {...register("description")}
-            className="textarea textarea-bordered resize-none"
+            className="textarea textarea-bordered rounded-[4px] resize-none"
             placeholder="Description"
           ></textarea>
         </label>
   
         <button
           type="submit"
-          className={`btn btn-success my-3 ${isBtnSubmit ? "disabled" : ""}`}
+          className={`btn btn-deepgreen rounded-[4px] my-3 ${isBtnSubmit ? "disabled" : ""}`}
         >
           <FaArrowsRotate />
           {editableData ? "Update" : "Submit"}

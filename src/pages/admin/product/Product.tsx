@@ -10,7 +10,7 @@ import InputSearch from '../../../components/ui/InputSearch';
 
 const Product = () => {
     const [modalId, setModalId] = useState<string>("");
-    const [searchInputValue, setSearchInputVlaue] = useState<string>('');
+    const [searchInputValue, setSearchInputValue] = useState<string>('');
     const [currentPage, setCurrentPage] = useState<number>(1);
     const {data:products,isLoading}=useGetAllProductsQuery({searchTerm:searchInputValue,page:currentPage})
 
@@ -19,16 +19,16 @@ const Product = () => {
     };
    
     if (isLoading) {
-      return <Loading />;
+      return <Loading className='h-screen'/>;
     }
     return (
       <>
       <div className="bg-gray-100 mt-4">
-        <div className="flex items-center bg-violet-700 gap-2 py-2 px-4">
-          <p className="font-bold text-white flex-1">All Category</p>
+        <div className="flex items-center bg-[#92C6C5] gap-2 py-2 px-4">
+          <p className="font-bold text-black flex-1">All Products</p>
           <button
             onClick={() => setModalId("openModal")}
-            className={`btn btn-sm btn-circle  btn-info`}
+            className={`btn btn-sm btn-circle  btn-deepgreen`}
           >
             <FaPlus />
           </button>
@@ -36,7 +36,12 @@ const Product = () => {
         <div className="px-4 py-5">
           <div className="flex flex-col md:flex-row gap-3 md:gap-0 justify-between">
             <div className="w-full md:w-80 mb-3">
-              <InputSearch setSearchValue={setSearchInputVlaue} />
+            <InputSearch
+                className="input-sm h-9"
+                setSearchValue={setSearchInputValue}
+                value={searchInputValue}
+                onChange={(e) => setSearchInputValue(e.target.value)}
+              />
             </div>
           </div>
   

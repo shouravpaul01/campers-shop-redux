@@ -1,6 +1,7 @@
 export type TCategory = {
     _id?: string;
     name: string;
+    icon:any,
     description?: string;
     status?:boolean;
   };

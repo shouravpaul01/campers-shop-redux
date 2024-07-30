@@ -6,9 +6,9 @@ import Loading from "../../../components/ui/Loading";
 
 const Dashboard = () => {
     const {data:categories,isLoading:isCategoryLoading}=useGetAllCategoriesQuery(undefined)
-    const {data:products,isLoading:isProductLoading}=useGetAllProductsQuery(undefined)
+    const {data:products,isLoading:isProductLoading}=useGetAllProductsQuery({})
     if (isCategoryLoading || isProductLoading) {
-        return <Loading/>
+        return <Loading className="h-screen"/>
     }
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

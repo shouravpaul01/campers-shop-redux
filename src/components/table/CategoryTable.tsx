@@ -8,7 +8,10 @@ import Modal from "../ui/Modal";
 
 import Loading from "../ui/Loading";
 import { toast } from "react-toastify";
-import { useGetSingleCategoryQuery, useUpdateStatusCategoryMutation } from "../../redux/features/category/categoryApi";
+import {
+  useGetSingleCategoryQuery,
+  useUpdateStatusCategoryMutation,
+} from "../../redux/features/category/categoryApi";
 import { TCategory, TCategoryTableProps } from "../../types/category.type";
 import CreateUpdateCategoryForm from "../form/CreateUpdateCategoryForm";
 
@@ -25,7 +28,7 @@ const CategoryTable = ({ categories }: TCategoryTableProps) => {
       status: status,
     };
     const res = await updateStatusCategory(updateData).unwrap();
-    console.log(res)
+    console.log(res);
     toast.success(res.message);
   };
   const hanleCloseModal = () => {
@@ -35,13 +38,9 @@ const CategoryTable = ({ categories }: TCategoryTableProps) => {
     <>
       <div className="overflow-x-auto">
         <table className="table  bg-white rounded-none">
-          {
-            categories?.length==0 && <caption>
-              Data not found!.
-            </caption>
-          }
+          {categories?.length == 0 && <caption>Data not found!.</caption>}
           {/* head */}
-          <thead className="bg-violet-300 text-sm text-black">
+          <thead className="bg-[#92C6C5] text-sm text-black">
             <tr>
               <th></th>
               <th>Name</th>
@@ -54,16 +53,31 @@ const CategoryTable = ({ categories }: TCategoryTableProps) => {
             {categories?.map((category: TCategory, index: number) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{category.name}</td>
+                <td>
+                  <div className="flex items-center gap-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle h-12 w-12">
+                        <img
+                          src={category.icon}
+                          alt="Avatar Tailwind CSS Component"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="font-bold">{category.name}</div>
+                  </div>
+                </td>
                 <td>{category.description}</td>
                 <td>
                   <div className="flex gap-2 items-center ">
                     <FaCircleDot
-                      className={category.status ? "text-primary" : "text-error"}
+                      className={
+                        category.status ? "text-primary" : "text-error"
+                      }
                     />
                     <span>{category.status ? "Active" : "Inactive"}</span>
                     <button
-                      className={`btn btn-sm btn-success`}
+                      className={`btn btn-sm btn-outline-deepgreen rounded-[4px]`}
                       onClick={() =>
                         handleStatusUpdate(
                           category._id!,
@@ -77,7 +91,7 @@ const CategoryTable = ({ categories }: TCategoryTableProps) => {
                 </td>
                 <td>
                   <button
-                    className="btn btn-sm btn-success"
+                    className="btn btn-sm btn-outline-deepgreen rounded-[4px]"
                     onClick={() => {
                       setcategoryId(category._id!);
                     }}

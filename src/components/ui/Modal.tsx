@@ -23,7 +23,7 @@ const Modal = ({ children, modalId,modalTitle, width,hanleCloseModal }: TModalPr
       <h3 className="font-bold text-lg">{modalTitle}</h3>
         <form method="dialog">
           {/* if there is a button in form, it will close the modal */}
-          <button className="btn btn-sm btn-circle  btn-primary absolute right-2 top-2" onClick={()=>hanleCloseModal()}>
+          <button className="btn btn-sm btn-circle  btn-deepgreen absolute right-2 top-2" onClick={()=>hanleCloseModal()}>
             ✕
           </button>
         </form>
