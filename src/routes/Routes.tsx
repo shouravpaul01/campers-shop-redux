@@ -9,6 +9,7 @@ import Checkout from "../pages/main/checkout/Checkout";
 import AboutUs from "../pages/main/about-us/AboutUs";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
+import NotFound from "../pages/not-found/NotFound";
 
 
 
@@ -16,6 +17,7 @@ export const router=createBrowserRouter([
     {
         path:"/",
         element:<MainLayout />,
+        errorElement:<NotFound />,
         children:[
             {
                 path:"/",
