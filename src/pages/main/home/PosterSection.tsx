@@ -18,7 +18,7 @@ const PosterSection = () => {
             Experience the outdoors with our durable and lightweight camping
             Tent. Perfect for any adventure!
           </p>
-          <Link to={"/products"} className="btn btn-deepgreen animate-bounceLR hover:animate-none">
+          <Link to={"/products"} className="btn btn-deepgreen animate-bounceLR hover:animate-none rounded-full">
             Shop Now <FaArrowRightLong />
           </Link>
         </div>

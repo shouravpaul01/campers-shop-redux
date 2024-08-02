@@ -11,12 +11,13 @@ const productApi = baseApi.injectEndpoints({
       invalidatesTags: ["products"],
     }),
     getAllProducts: build.query({
-      query: (query) => ({
-        url: `/products?searchTerm=${query?.searchTerm || ""}&page=${
-          query?.page || ""
-        }&sort=${query.sort || ""}`,
-        method: "GET",
-      }),
+      query: (query) => {
+        const { searchTerm , categories,priceRange, page , sort } = query;
+        return {
+          url: `/products?searchTerm=${searchTerm}&categories=${JSON.stringify(categories)}&priceRange=${JSON.stringify(priceRange)}&page=${page}&sort=${sort}`,
+          method: "GET",
+        };
+      },
       providesTags: ["products"],
     }),
     getSingleProduct: build.query({

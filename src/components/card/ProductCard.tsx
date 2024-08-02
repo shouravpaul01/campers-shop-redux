@@ -25,9 +25,9 @@ const ProductCard = ({ product }: { product: TProduct }) => {
           className="w-full h-52 object-cover"
         />
       </figure>
-      <div className="card-body">
-        <h2 className="card-title">{product.name}</h2>
-        <div className="card-actions items-center justify-between">
+      <div className="card-body ">
+        <h2 className="text-base font-semibold text-gray-600">{product.name}</h2>
+        <div className="card-actions items-center justify-between mt-auto">
           <p className="font-bold text-lg">{product.price} Tk</p>
           <StarRatings
             rating={product.rating}
@@ -40,18 +40,19 @@ const ProductCard = ({ product }: { product: TProduct }) => {
         </div>
         <div className="absolute inset-0 flex flex-col gap-5 items-center justify-center rounded-[4px] bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 ">
           <button
-            className="btn btn-deepgreen rounded-full"
+            className="btn btn-deepgreen rounded-full shadow-md shadow-white"
             onClick={() => handleAddToCart(product)}
           >
             <FaCartShopping />{" "}
           </button>
           <Link
             to={`/products/product-details/${product.slug}`}
-            className="btn btn-deepgreen "
+            className="btn btn-deepgreen rounded-full shadow-md shadow-white"
           >
             <FaCircleInfo />
           </Link>
         </div>
+         
       </div>
     </div>
   );

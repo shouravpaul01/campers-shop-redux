@@ -18,17 +18,17 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }:TPaginationProps
     <div className="flex gap-3 ">
       <button
         onClick={() => setCurrentPage(currentPage - 1)}
-        className="btn btn-sm btn-circle btn-deepgreen"
+        className="btn btn-sm  btn-deepgreen rounded-[4px]"
         disabled={currentPage === 1}
       >
-        <MdKeyboardDoubleArrowLeft />
+        <MdKeyboardDoubleArrowLeft /> Prev
       </button>
       <ul className="flex flex-wrap gap-2">
         {generateTotalPaginatePages(totalPages)?.map((pageNo, index) => (
           <li
             key={index + 1}
             className={`btn btn-sm btn-circle ${
-              currentPage == pageNo ? "btn-deepgreen" : "btn-outline btn-deepgreen"
+              currentPage == pageNo ? "btn-deepgreen" : "btn-outline-deepgreen"
             } `}
             onClick={() => {
               setCurrentPage(pageNo);
@@ -40,10 +40,10 @@ const Pagination = ({ currentPage, setCurrentPage, totalPages }:TPaginationProps
       </ul>
       <button
         onClick={() => setCurrentPage(currentPage + 1)}
-        className="btn btn-sm btn-circle btn-deepgreen"
+        className="btn btn-sm  btn-deepgreen rounded-[4px]"
         disabled={currentPage === totalPages}
       >
-        <MdKeyboardDoubleArrowRight />
+        Next <MdKeyboardDoubleArrowRight /> 
       </button>
     </div>
   );

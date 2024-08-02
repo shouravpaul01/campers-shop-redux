@@ -47,7 +47,7 @@ const Banner = () => {
                     your needs. Enjoy unmatched comfort, cutting-edge features,
                     and durable construction designed to handle any terrain.
                   </p>
-                  <Link to={"/products"} className="mt-4 btn btn-sm btn-deepgreen rounded-[4px]">
+                  <Link to={"/products"} className="mt-4 btn btn-sm btn-deepgreen rounded-full">
                     <FaArrowRightLong className="animate-bounceLR me-3" /> Shop
                     Now
                   </Link>
@@ -73,7 +73,7 @@ const Banner = () => {
                     a memorable trip. Equip yourself with top-quality gear
                     designed for ultimate convenience and durability.
                   </p>
-                  <Link to={"/products"} className="mt-4 btn btn-sm btn-deepgreen rounded-[4px]">
+                  <Link to={"/products"} className="mt-4 btn btn-sm btn-deepgreen rounded-full">
                     <FaArrowRightLong className="animate-bounceLR me-3" /> Shop
                     Now
                   </Link>
@@ -93,7 +93,7 @@ const Banner = () => {
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
               <h2 className="text-3xl font-bold">Huge Sale!</h2>
               <p className="text-xl mt-2">Up to 50% Off on All Campers</p>
-              <Link to={"/products"}  className="btn btn-sm btn-deepgreen mt-4 rounded-[4px] ">
+              <Link to={"/products"}  className="btn btn-sm btn-deepgreen mt-4 rounded-full ">
               <FaArrowRightLong className="animate-bounceLR me-3" /> Shop Now
               </Link>
             </div>

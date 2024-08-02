@@ -1,7 +1,7 @@
 import Lottie from "react-lottie";
 import faqLottie from "../../../assets/lottie/faq-lottie.json";
 const FAQSection = () => {
-  const defaultOptions = {
+  const lottieAnimationOptions = {
     loop: true,
     autoplay: true,
     animationData: faqLottie,
@@ -20,7 +20,7 @@ const FAQSection = () => {
       </div>
       <div className="flex flex-col md:flex-row gap-5 py-6">
         <div className="w-full md:w-1/2 flex items-center justify-center bg-white rounded-[4px]">
-          <Lottie options={defaultOptions} width={350} height={350} />
+          <Lottie options={lottieAnimationOptions} width={350} height={350} />
         </div>
         <div className="w-full md:w-1/2 space-y-2">
           <div className="collapse rounded-[4px] collapse-plus bg-white">

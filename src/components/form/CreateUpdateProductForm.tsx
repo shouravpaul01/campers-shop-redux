@@ -129,7 +129,7 @@ const CreateUpdateProductForm = ({
             Rating <span className="text-red-500">*</span>
           </span>
           <input
-            type="number"
+            type="text"
             {...register("rating")}
             placeholder="Name"
             className="input input-bordered   w-full"

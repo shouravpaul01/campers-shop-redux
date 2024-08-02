@@ -56,16 +56,12 @@ const CreateUpdateCategoryForm =  ({editableData}:{editableData?:TCategory | und
     };
     const handleUpdate: SubmitHandler<TCategory> = async (data) => {
       setIsBtnSubmit(true);
-      console.log(data)
+    
       try {
-        const updateData = {
-          _id: data._id,
-          category: {
-            name: data.name,
-            description: data.description,
-          },
-        };
-        const res = await updateCatgeory(updateData).unwrap();
+        const formData=new FormData()
+        formData.append("file",data.icon[0])
+        formData.append("data",JSON.stringify(data))
+        const res = await updateCatgeory({_id:data._id,category:formData}).unwrap();
         toast.success(res.message);
       } catch (error:any) {
         const errorMessages=error?.data.errorMessages ;

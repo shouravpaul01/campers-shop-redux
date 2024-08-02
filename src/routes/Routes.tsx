@@ -7,6 +7,8 @@ import ProductDetails from "../pages/main/product-details/ProductDetails";
 import Cart from "../pages/main/cart/Cart";
 import Checkout from "../pages/main/checkout/Checkout";
 import AboutUs from "../pages/main/about-us/AboutUs";
+import Login from "../pages/auth/Login";
+import Register from "../pages/auth/Register";
 
 
 
@@ -38,6 +40,16 @@ export const router=createBrowserRouter([
             {
                 path:"/about",
                 element:<AboutUs/>
+
+            },
+            {
+                path:"/login",
+                element:<Login/>
+
+            },
+            {
+                path:"/register",
+                element:<Register/>
 
             },
             {
