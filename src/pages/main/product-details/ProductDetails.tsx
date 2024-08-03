@@ -8,8 +8,10 @@ import Loading from "../../../components/ui/Loading";
 import { useAppDispatch, useAppSelector } from "../../../redux/hook";
 import { updateProductIntoCart } from "../../../redux/features/cart/cartSlice";
 import { TProduct } from "../../../types/product.type";
+import useTitle from "../../../hook/useTitle";
 
 const ProductDetails = () => {
+  useTitle("Details")
   const { slug } = useParams();
   const { data, isLoading } = useGetSingleProductBySlugQuery(slug);
   const imageContainerRef = useRef<HTMLDivElement>(null);

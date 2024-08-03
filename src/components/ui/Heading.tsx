@@ -7,7 +7,7 @@ const Heading = ({headingTitle}:{headingTitle:string}) => {
         <p className="flex-1 text-xl md:text-2xl font-bold">
           {headingTitle}
         </p>
-        <Link to={"/products"} className="flex items-center gap-2 font-bold ">
+        <Link to={"/products"} className="flex items-center gap-2 font-bold text-deepgreen">
           View More<FaArrowRightLong className="animate-bounceLR " />
         </Link>
       </div>

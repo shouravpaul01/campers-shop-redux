@@ -2,8 +2,10 @@ import { useState } from "react";
 import { FaArrowRightToBracket, FaEye, FaEyeSlash } from "react-icons/fa6";
 import Lottie from "react-lottie";
 import login_lottie from "../../assets/lottie/login-lottie.json";
+import useTitle from "../../hook/useTitle";
 
 const Login = () => {
+  useTitle("Login")
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const lottieAnimationOptions = {
     loop: true,

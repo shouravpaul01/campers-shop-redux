@@ -12,9 +12,9 @@ const productApi = baseApi.injectEndpoints({
     }),
     getAllProducts: build.query({
       query: (query) => {
-        const { searchTerm , categories,priceRange, page , sort } = query;
+        const { searchTerm , categories,priceRange, page,limit , sort } = query;
         return {
-          url: `/products?searchTerm=${searchTerm}&categories=${JSON.stringify(categories)}&priceRange=${JSON.stringify(priceRange)}&page=${page}&sort=${sort}`,
+          url: `/products?searchTerm=${searchTerm || ""}&categories=${categories?JSON.stringify(categories):""}&priceRange=${priceRange?JSON.stringify(priceRange):""}&page=${page || ""}&limit=${limit || ""}&sort=${sort || ""}`,
           method: "GET",
         };
       },
@@ -60,3 +60,5 @@ export const {
   useUpdateStatusProductMutation,
   useGetSingleProductBySlugQuery
 } = productApi;
+
+

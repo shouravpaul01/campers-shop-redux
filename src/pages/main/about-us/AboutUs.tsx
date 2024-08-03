@@ -14,7 +14,7 @@ import { teamMembers } from "../../../constant";
 const AboutUs = () => {
   const position:LatLngExpression = [23.8103, 90.4125];
   return (
-    <div className="my-9">
+    <div className="my-16">
       <div className="flex flex-col md:flex-row gap-4">
         <div className="w-full md:w-1/2 space-y-5">
           <div className="bg-white rounded-[4px] p-5 space-y-2">
@@ -45,7 +45,7 @@ const AboutUs = () => {
             </a>
           </div>
         </div>
-        <div className="w-full md:w-1/2 rounded-[4px]">
+        <div className="w-full md:w-1/2 rounded-[4px] -z-0">
           <MapContainer center={position} zoom={13} style={{ height:"250px", width: '100%' ,borderRadius:"4px"}} scrollWheelZoom={false}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

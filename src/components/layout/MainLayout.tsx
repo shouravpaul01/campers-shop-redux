@@ -7,7 +7,7 @@ import Footer from "../footer/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="bg-slate-100 ">
+    <div className="bg-slate-50 ">
        <Navbar />
       <Container>
         <Outlet />

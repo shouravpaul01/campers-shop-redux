@@ -8,14 +8,15 @@ import ProductCard from "../../../components/card/ProductCard";
 import Pagination from "../../../components/ui/Pagination";
 import Loading from "../../../components/ui/Loading";
 import { useLocation } from "react-router-dom";
+import useTitle from "../../../hook/useTitle";
 
 const ProductShop = () => {
+  useTitle("Shop")
   const [sortValue, setSortValue] = useState("");
   const [priceRangeValue, setPriceRangeValue] = useState([100,10000]);
   const [categoryValue, setCategoryValue] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const location = useLocation();
-  console.log(priceRangeValue);
   const queryParams = new URLSearchParams(location.search);
   const searchQuery = queryParams.get("search") || "";
   const { data: products, isLoading } = useGetAllProductsQuery({
@@ -23,11 +24,11 @@ const ProductShop = () => {
     categories: categoryValue,
     priceRange:{minPrice:priceRangeValue[0],maxPrice:priceRangeValue[1]},
     page: currentPage,
+    limit:6,
     sort: sortValue,
   });
-  // if (isLoading) {
-  //   return <Loading className="h-screen" />;
-  // }
+  
+  
  
   return (
     <>
@@ -63,7 +64,7 @@ const ProductShop = () => {
             </div>
           </div>
           {isLoading && <Loading className="h-screen" />}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mt-7">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-7 mt-7">
             {products?.data?.data?.map((product: TProduct, index: number) => (
               <ProductCard key={index} product={product} />
             ))}

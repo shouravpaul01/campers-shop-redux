@@ -9,8 +9,8 @@ import Dashboard from "./Dashboard";
 const AdminDasboard = () => {
   const [tabActive, setTabActive] = useState<string>("dashboard");
   return (
-    <div className="my-container h-screen">
-      <div className="my-4 ">
+    <div className="my-container min-h-screen">
+      <div className="pt-8 ">
         <div className="join">
           <button
             className={`btn join-item ${tabActive =="dashboard" ? "btn-deepgreen":"btn-outline-deepgreen "}`}
@@ -32,7 +32,7 @@ const AdminDasboard = () => {
           </button>
         </div>
       </div>
-      <div>
+      <div className="my-8">
         {tabActive=="dashboard" && <Dashboard/>}
         {tabActive=="category" && <Category/>}
         {tabActive=="product" && <Product/>}

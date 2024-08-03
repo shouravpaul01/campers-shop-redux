@@ -6,7 +6,7 @@ const DisplayCategorySection = () => {
   return (
     <div className="py-9">
       <Heading headingTitle="My Market Category" />
-      <div className="flex flex-wrap gap-5 py-6">
+      <div className="flex flex-wrap gap-5 py-8">
         {categories?.data?.map((category: TCategory, index: number) => (
           <div key={index} className="text-center">
             <img

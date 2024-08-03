@@ -26,7 +26,7 @@ const ProductCard = ({ product }: { product: TProduct }) => {
         />
       </figure>
       <div className="card-body ">
-        <h2 className="text-base font-semibold text-gray-600">{product.name}</h2>
+        <h2 className="text-base font-semibold text-gray-600 line-clamp-2">{product.name}</h2>
         <div className="card-actions items-center justify-between mt-auto">
           <p className="font-bold text-lg">{product.price} Tk</p>
           <StarRatings

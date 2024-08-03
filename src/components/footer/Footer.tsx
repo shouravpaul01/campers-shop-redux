@@ -32,7 +32,7 @@ const Footer = () => {
         </nav>
       </div>
     </div>
-    <div className="bg-black p-4 text-white text-opacity-20 text-center">
+    <div className="bg-black  p-2 text-white text-opacity-30 text-center">
       <p>Copyright © 2024 - All right reserved by Campers shop</p>
     </div>
   </footer>

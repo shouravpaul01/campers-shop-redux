@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import useTitle from "../../hook/useTitle";
 
 
 const Register = () => {
+  useTitle("Register")
     const [showPassword, setShowPassword] = useState<boolean>(false);
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen ">
       <div className="w-full max-w-md p-8 space-y-3 rounded-[4px] bg-white shadow-md">
        <div className="border-b border-deepgreen border-dashed pb-2">
        <h1 className="text-2xl font-bold ">Register</h1>

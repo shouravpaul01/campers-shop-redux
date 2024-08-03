@@ -4,7 +4,7 @@ import {
   FaCartShopping,
   FaCircleUser,
   FaHeart,
-  FaRegCircleUser,
+  FaRegAddressBook,
   FaRegHeart,
 } from "react-icons/fa6";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -30,13 +30,13 @@ const Navbar = () => {
     e.preventDefault();
     navigate(`/products?search=${encodeURIComponent(searchInputValue)}`);
   };
- const handleScroll = () => {
-      if (window.scrollY > 50){
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar Start */}
-        <div className={`bg-slate-100 py-2 text-sm relative`}>
+        <div className={`bg-slate-100 py-2 text-sm hidden md:block`}>
           <div className="my-container md:flex items-center justify-between">
             <div className="flex gap-3">
               <p className="flex items-center gap-1">
@@ -61,14 +61,31 @@ const Navbar = () => {
             </div>
             <div>
               <ul className="flex gap-2">
-                <li>About Us</li>|<li>Contact Us</li>|<li>Login</li>
+                <li><NavLink
+                    to={"/login"}
+                    className={({ isActive }) =>
+                      isActive ? "text-[#2D6F6D] font-bold" : "nav-item-hover"
+                    }
+                  >
+                    About us
+                  </NavLink></li>|<li>Contact Us</li>|
+                <li>
+                  <NavLink
+                    to={"/login"}
+                    className={({ isActive }) =>
+                      isActive ? "text-[#2D6F6D] font-bold" : "nav-item-hover"
+                    }
+                  >
+                    Login
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>
         </div>
         <div
           className={`transition-transform duration-700 ease-in-out ${
-            isSticky && "fixed top-0 left-0 w-full z-40 shadow-md" 
+            isSticky && "fixed top-0 left-0 w-full z-40 shadow-md"
           }`}
         >
           {/* Navbar Middle */}
@@ -122,11 +139,11 @@ const Navbar = () => {
                   </li>
                   <li>
                     <div className="indicator text-xl">
-                      {cart?.length > 0 && (
-                        <span className="indicator-item badge w-5 -right-2 badge-secondary">
+                      
+                        <span className="indicator-item badge w-5 -left-8 md:left-2 top-[10px] md:top-0  badge-secondary">
                           {cart?.length}
                         </span>
-                      )}
+                      
                       <Link to={"/cart"}>
                         <FaCartShopping />
                       </Link>
@@ -163,7 +180,7 @@ const Navbar = () => {
                               isActive ? "menu-item-active" : "menu-item"
                             }
                           >
-                            <FaArrowRightToBracket />
+                            <FaRegAddressBook />
                             Register
                           </NavLink>
                         </li>
@@ -188,7 +205,7 @@ const Navbar = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content top-9 main-menu bg-white rounded-[4px] z-[50] w-56 p-2 shadow "
+                    className="dropdown-content top-[33px] main-menu bg-white rounded-[4px] z-[50] w-56 p-2 shadow "
                   >
                     {activeCategories?.data?.map(
                       (category: TCategory, index: number) => (
@@ -208,32 +225,47 @@ const Navbar = () => {
                 </div>
               </li>
               <li>
-                <Link to="/products" className="nav-item-hover">
+                <NavLink
+                  to="/products"
+                  className={({ isActive }) =>
+                    isActive ? "text-[#2D6F6D] font-bold" : "nav-item-hover"
+                  }
+                >
                   Products
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/about" className="nav-item-hover">
+                <NavLink
+                  to="/about"
+                  className={({ isActive }) =>
+                    isActive ? "text-[#2D6F6D] font-bold" : "nav-item-hover"
+                  }
+                >
                   About
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/admin-dashboard" className="nav-item-hover">
+                <NavLink
+                  to="/admin-dashboard"
+                  className={({ isActive }) =>
+                    isActive ? "text-[#2D6F6D] font-bold" : "nav-item-hover"
+                  }
+                >
                   Product-Management
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
         </div>
         {/* Page content here */}
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side z-50">
         <label
           htmlFor="my-drawer-3"
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="bg-white min-h-full w-80 z-50 p-4">
+        <div className="bg-white min-h-full w-80 p-4">
           <div>
             <ul className="menu menu-horizontal text-xl text-black">
               <li>
@@ -247,9 +279,42 @@ const Navbar = () => {
                 </div>
               </li>
               <li>
-                <Link to={"/admin-dasboard"}>
-                  <FaRegCircleUser />
-                </Link>
+                <div className="dropdown dropdown-hover dropdown-bottom">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="flex items-center text-xl"
+                  >
+                    <FaCircleUser />
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content  main-menu bg-slate-50 text-base rounded-[4px] z-[1] w-56 p-2 shadow text-black"
+                  >
+                    <li>
+                      <NavLink
+                        to={"/login"}
+                        className={({ isActive }) =>
+                          isActive ? "menu-item-active" : "menu-item"
+                        }
+                      >
+                        <FaArrowRightToBracket />
+                        Login
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to={"/register"}
+                        className={({ isActive }) =>
+                          isActive ? "menu-item-active" : "menu-item"
+                        }
+                      >
+                        <FaRegAddressBook />
+                        Register
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>
@@ -311,11 +376,38 @@ const Navbar = () => {
               )}
               {tabMobileMenuItem == "main-menu" && (
                 <>
-                  <li className="menu-item">
-                    <Link to="/products">Products</Link>
+                  <li >
+                  <NavLink
+                        to="/products"
+                        className={({ isActive }) =>
+                          isActive ? "menu-item-active" : "menu-item"
+                        }
+                      >
+                        Products
+                      </NavLink>
+                  
                   </li>
-                  <li className="menu-item">
-                    <Link to="/about">About</Link>
+                  <li>
+                   <NavLink
+                        to="/about"
+                        className={({ isActive }) =>
+                          isActive ? "menu-item-active" : "menu-item"
+                        }
+                      >
+                        About
+                      </NavLink>
+                    
+                  </li>
+                  <li>
+                   <NavLink
+                        to="/admin-dashboard"
+                        className={({ isActive }) =>
+                          isActive ? "menu-item-active" : "menu-item"
+                        }
+                      >
+                        Product Management
+                      </NavLink>
+                    
                   </li>
                 </>
               )}

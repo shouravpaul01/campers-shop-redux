@@ -26,12 +26,12 @@ const Banner = () => {
               clickable: true,
             }}
             modules={[Autoplay, Pagination]}
-            className="mySwiper"
+            className="mySwiper -z-0"
           >
             <SwiperSlide>
-              <div className="relative h-[400px]">
+              <div className="relative h-[400px] -z-0">
                 <img
-                  src={banner1}
+                  src="https://img.freepik.com/free-photo/young-backpacker-man-wearing-hat-sitting-front-tent-nature-forest-looking-paper-map-forest-trails-planning-while-camping-trip-summer-vacation-copy-space_1150-48338.jpg?ga=GA1.1.2109997919.1721839763&semt=ais_hybrid"
                   alt="Camper"
                   className="h-full w-full object-cover rounded-[4px]"
                 />
@@ -55,11 +55,11 @@ const Banner = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="relative h-[400px]">
+              <div className="relative h-[400px] ">
                 <img
-                  src={banner1}
+                  src="https://img.freepik.com/free-photo/happy-female-friends-waving-their-hands-long-shot_23-2148653453.jpg?ga=GA1.1.2109997919.1721839763&semt=ais_hybrid"
                   alt="Camper Accessories"
-                  className="h-full w-full object-cover rounded-[4px] "
+                  className="h-full w-full object-cover rounded-[4px]  "
                 />
                 <div className="absolute inset-0 bg-black opacity-20 rounded-[4px]"></div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-5">
@@ -82,7 +82,7 @@ const Banner = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="h-[388px] flex flex-col gap-3 w-[40%]">
+        <div className="h-[388px] hidden md:flex flex-col gap-3 w-[40%]">
           {/* Product Discount Poster */}
           <div className="h-1/2 bg-gradient-to-r from-pink-500 to-pink-100 flex items-center justify-center rounded-[4px] relative">
             <img
@@ -102,7 +102,7 @@ const Banner = () => {
           {/* Coupon Poster */}
           <div className="h-1/2 bg-gradient-to-r from-blue-100 to-purple-700  flex items-center justify-center rounded-[4px] relative">
             <img
-              src={banner1}
+              src="https://img.freepik.com/free-photo/front-view-young-asian-pretty-woman-her-girlfriend-sitting-front-tent-use-mobile-phone-take-photo-camping-forest-with-happiness-together_1150-61784.jpg?ga=GA1.1.2109997919.1721839763&semt=ais_hybrid"
               alt="Coupon"
               className="h-full w-full object-cover rounded-[4px] opacity-50"
             />

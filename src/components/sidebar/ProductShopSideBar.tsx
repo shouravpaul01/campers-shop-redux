@@ -17,8 +17,8 @@ const ProductShopSideBar = ({rangeValue,setRangeValue,setCategoryValue}:{rangeVa
   return (
     <>
       <div className="bg-white rounded-[4px] ">
-            <p className="font-semibold text-lg p-3 border-b">Price Range</p>
-            <div className="p-5">
+            <p className="font-semibold text-lg p-3  border-b">Price Range</p>
+            <div className="p-7 md:p-6">
               <Slider
                 range
                 min={100}
