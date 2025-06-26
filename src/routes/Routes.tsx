@@ -10,6 +10,8 @@ import AboutUs from "../pages/main/about-us/AboutUs";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import NotFound from "../pages/not-found/NotFound";
+import AdminDashboardLayout from "../components/layout/AdminDashboardLayout";
+import Dashboard from "../pages/admin/dashbord/Dashboard";
 
 
 
@@ -58,6 +60,18 @@ export const router=createBrowserRouter([
                 path:"/admin-dashboard",
                 element:<AdminDasboard/>
             }
+        ]
+    },
+    {
+        path:"/admin/dashboard",
+        element:<AdminDashboardLayout />,
+        errorElement:<NotFound />,
+        children:[
+            {
+                path:"/admin/dashboard",
+                element:<Dashboard/>
+            },
+           
         ]
     }
 ])
