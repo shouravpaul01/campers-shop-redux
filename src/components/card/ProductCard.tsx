@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: TProduct }) => {
   };
   return (
     <div className="card card-compact rounded-[4px] bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-      <figure>
+      <figure  >
         <img
           src={product.image}
           alt="Shoes"
